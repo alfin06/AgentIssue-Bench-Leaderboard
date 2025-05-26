@@ -16,12 +16,11 @@
             <i class="bi bi-github"></i> GitHub Project
           </a>
            <a
-            href="https://hub.docker.com/r/llmagents/agentissue-bench/tags"
+            href="https://hub.docker.com/r/alfin06/agentissue-bench/tags"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-info mx-2"
-            title="View on Docker Hub"
-          >
+            title="View on Docker Hub">
             <i class="bi bi-box-seam"></i> Docker Hub
           </a>
           <!-- <a
