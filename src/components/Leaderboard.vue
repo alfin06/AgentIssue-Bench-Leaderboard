@@ -2,7 +2,7 @@
   <div class="leaderboard-page bg-white text-dark min-vh-100">
     <header class="bg-white text-dark py-3 shadow-sm border-bottom">
       <div class="container-fluid d-flex justify-content-between align-items-center">
-        <h2 class="mb-0 fw-bold ps-3">🤖 AgentIssue-Bench</h2>
+        <h2 class="mb-0 fw-bold ps-3">&nbsp;&nbsp; AgentIssue-Bench</h2>
         </div>
     </header>
 
