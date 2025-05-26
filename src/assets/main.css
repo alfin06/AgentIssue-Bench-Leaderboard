@@ -1,0 +1,56 @@
+@import './base.css';
+
+#app {
+  /* REMOVED: max-width: 1280px; */
+  /* REMOVED: margin: 0 auto; */
+  /* REMOVED: padding: 2rem; */
+  padding: 0; /* Set padding to 0, let components handle it */
+  font-weight: normal;
+  width: 100%; /* Ensure it tries to be 100% wide */
+  min-height: 100vh; /* Ensure it takes full height */
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+/* REMOVED THE ENTIRE @media (min-width: 1024px) BLOCK or just its contents */
+/*
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+*/
+
+/* RECOMMENDED: Add a basic reset to ensure no unwanted margins/paddings */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  box-sizing: border-box !important;
+  background-color: #212529; /* Base background */
+}
+
+body {
+    display: block; /* Ensure body isn't flexing/gridding */
+}
