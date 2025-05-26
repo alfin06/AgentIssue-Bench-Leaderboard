@@ -3,16 +3,15 @@
 
     <main class="container-fluid py-4 py-md-5">
       <div class="text-center mb-4 mb-md-5">
-        <h1 class="card-title mb-0 fw-semibold text-center">🤖 AgentIssue-Bench</h1>
-
+        <h1 class="card-title mb-0 fw-semibold text-center">AgentIssue-Bench</h1>
+        <p class="lead text-muted text-center">The first reproducible issue resolution benchmark focused on real-world agent system issues</p>
         <div class="mt-4 link-buttons">
           <a
             href="https://github.com/alfin06/AgentIssue-Bench"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-dark mx-2"
-            title="View Project on GitHub"
-          >
+            title="View Project on GitHub">
             <i class="bi bi-github"></i> GitHub Project
           </a>
            <a
@@ -39,11 +38,10 @@
       <div class="row g-4">
         <div class="col-lg-8">
           <div class="card shadow-lg rounded-4 border h-100">
-            <div class="card-header bg-light py-3">
+            <div class="card-body p-2 p-md-4">
               <h3 class="card-title text-center fw-bold mb-4">🏆 Leaderboard 🏆</h3>
               <p class="lead text-muted text-center">Top-performing SE agent systems ranked by % Resolved</p>
-            </div>
-            <div class="card-body p-2 p-md-4">
+              <hr/>
               <div class="table-responsive">
                 <table class="table table-striped table-hover mb-0 align-middle text-center fs-6">
                   <thead class="table-dark">
@@ -141,6 +139,10 @@
 
     <footer class="bg-light text-center py-4 mt-auto border-top">
       <div class="container-fluid">
+         <p class="mb-2 text-muted">
+          <i class="bi bi-envelope"></i> Want to contribute? Contact us at: 
+          <a :href="'mailto:' + contactEmail">{{ contactEmail }}</a>
+        </p>
         <small class="text-muted">© 2025 AgentIssue-Bench Team.</small>
       </div>
     </footer>
@@ -164,6 +166,8 @@ const SortIcon = {
     </span>
   `,
 };
+
+const contactEmail = ref('24212010055@m.fudan.edu.cn');
 
 const leaderboard = ref([
   { system: 'AutoCodeRover + Claude 3.5 Sonnet', institution: 'https://avatars.githubusercontent.com/u/100131783?s=200&v=4', score: 12.67, link: 'https://autocoderover.dev/' },
