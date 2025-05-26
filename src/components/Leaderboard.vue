@@ -1,31 +1,27 @@
 <template>
   <div class="leaderboard-page bg-white text-dark min-vh-100">
-    <header class="bg-white text-dark py-3 shadow-sm border-bottom">
-      <div class="container-fluid d-flex justify-content-between align-items-center">
-        <h2 class="mb-0 fw-bold ps-3">&nbsp;&nbsp; AgentIssue-Bench</h2>
-        </div>
-    </header>
 
     <main class="container-fluid py-4 py-md-5">
       <div class="text-center mb-4 mb-md-5">
-        <h1 class="display-4 fw-bolder">🏆 Leaderboard 🏆</h1>
-        <p class="lead text-muted">Top-performing SE agent systems ranked by % Resolved</p>
+        <h1 class="card-title mb-0 fw-semibold text-center">🤖 AgentIssue-Bench</h1>
 
-        <div class="mt-4">
+        <div class="mt-4 link-buttons">
           <a
             href="https://github.com/alfin06/AgentIssue-Bench"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-dark mx-2"
-            title="View Project on GitHub">
-            <i class="bi bi-github"></i> GitHub
+            title="View Project on GitHub"
+          >
+            <i class="bi bi-github"></i> GitHub Project
           </a>
-          <a
+           <a
             href="https://hub.docker.com/r/llmagents/agentissue-bench/tags"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline-info mx-2"
-            title="View on Docker Hub">
+            title="View on Docker Hub"
+          >
             <i class="bi bi-box-seam"></i> Docker Hub
           </a>
           <!-- <a
@@ -34,7 +30,8 @@
             rel="noopener noreferrer"
             class="btn btn-outline-secondary mx-2 disabled"
             title="Read the Paper (Coming Soon)"
-            aria-disabled="true">
+            aria-disabled="true"
+          >
             <i class="bi bi-file-earmark-text"></i> Read the Paper (Soon)
           </a> -->
         </div>
@@ -43,6 +40,10 @@
       <div class="row g-4">
         <div class="col-lg-8">
           <div class="card shadow-lg rounded-4 border h-100">
+            <div class="card-header bg-light py-3">
+              <h3 class="card-title text-center fw-bold mb-4">🏆 Leaderboard 🏆</h3>
+              <p class="lead text-muted text-center">Top-performing SE agent systems ranked by % Resolved</p>
+            </div>
             <div class="card-body p-2 p-md-4">
               <div class="table-responsive">
                 <table class="table table-striped table-hover mb-0 align-middle text-center fs-6">
@@ -129,7 +130,7 @@
                 <ul class="list-group list-group-flush fs-6">
                   <li class="list-group-item bg-transparent text-dark border-bottom py-3">
                     <span class="badge bg-primary me-2">NEW</span>
-                    [05/2025] Initial benchmark release!
+                    Initial benchmark release! [05/2025]
                   </li>
                 </ul>
               </div>
@@ -255,11 +256,9 @@ body {
 }
 
 /* Header & Footer */
-header, footer {
+footer { /* Only footer now */
   flex-shrink: 0;
-}
-footer {
-    background-color: #f8f9fa !important;
+  background-color: #f8f9fa !important;
 }
 
 /* Main Content */
@@ -272,6 +271,11 @@ main.container-fluid {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   background-color: #ffffff;
   border-color: #dee2e6;
+}
+
+.card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #f8f9fa !important; /* Ensure it's light */
 }
 
 @media (hover: hover) {
@@ -382,12 +386,36 @@ main.container-fluid {
 .btn .bi {
     vertical-align: middle;
     margin-right: 0.5rem;
-    font-size: 1.1rem; /* Adjust icon size in buttons */
+    font-size: 1.1rem;
 }
-/* Ensure button text aligns well */
 .btn {
     display: inline-flex;
     align-items: center;
+}
+
+/* Link Buttons Layout */
+.link-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens before stacking */
+  gap: 0.5rem; /* Add some space between buttons */
+}
+
+.link-buttons .btn {
+  margin: 0; /* Remove old margins */
+}
+
+/* Visually Hidden Class */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* Specific Mobile Adjustments */
@@ -412,17 +440,29 @@ main.container-fluid {
         padding-left: 1rem !important;
     }
     .btn {
-        padding: 0.375rem 0.75rem; /* Standard button size */
-        font-size: 0.9rem;
-        margin-top: 0.5rem !important; /* Stack buttons vertically */
-        margin-left: 0 !important; /* Remove horizontal margin */
-        margin-right: 0 !important;
-        width: 60%; /* Make buttons take some width */
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
     }
-    .mt-4 > .btn { /* Target buttons directly for stacking */
-        display: block;
-        margin-left: auto !important;
-        margin-right: auto !important;
+    .link-buttons {
+      flex-direction: column;
+      align-items: center; /* Center buttons when stacked */
+    }
+    .link-buttons .btn {
+        display: flex; /* Ensure flex for centering icon */
+        justify-content: center; /* Center content */
+        width: 80%; /* Adjust width for stacked buttons */
+        margin-bottom: 0.5rem !important;
+    }
+    .link-buttons .btn:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Ensure buttons are inline on larger screens */
+@media (min-width: 768px) {
+    .link-buttons .btn {
+        display: inline-flex;
+        width: auto; /* Auto width on larger screens */
     }
 }
 </style>
