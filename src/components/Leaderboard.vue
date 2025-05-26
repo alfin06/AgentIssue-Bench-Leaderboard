@@ -12,7 +12,7 @@
             rel="noopener noreferrer"
             class="btn btn-outline-dark mx-2"
             title="View Project on GitHub">
-            <i class="bi bi-github"></i> GitHub Project
+            <i class="bi bi-github"></i> GitHub
           </a>
            <a
             href="https://hub.docker.com/r/alfin06/agentissue-bench/tags"
