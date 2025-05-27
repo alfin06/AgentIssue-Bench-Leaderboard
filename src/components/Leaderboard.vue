@@ -103,7 +103,7 @@
 
             <div class="card shadow-lg rounded-4 border">
               <div class="card-body p-3 p-md-4">
-                <h3 class="card-title text-center fw-bold mb-4">🧩 Distribution</h3>
+                <h3 class="card-title text-center fw-bold mb-4">🧩 Distribution of AgentIssue-Bench</h3>
                 <hr/>
                 <img :src="pie" alt="Distribution of AgentIssue-Bench" class="img-fluid rounded" />
               </div>
