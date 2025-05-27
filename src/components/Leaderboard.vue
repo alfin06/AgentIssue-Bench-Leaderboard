@@ -3,7 +3,7 @@
 
     <main class="container-fluid py-4 py-md-5">
       <div class="text-center mb-4 mb-md-5">
-        <h1 class="display-5 fw-bolder mb-3">🤖 AgentIssue-Bench</h1>
+        <h1 class="display-5 fw-bolder mb-3">AgentIssue-Bench</h1>
         <p class="lead text-muted">The first reproducible issue resolution benchmark focused on real-world agent system issues.</p>
         <div class="mt-4 link-buttons">
           <a
