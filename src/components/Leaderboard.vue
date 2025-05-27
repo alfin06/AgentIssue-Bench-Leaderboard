@@ -3,8 +3,8 @@
 
     <main class="container-fluid py-4 py-md-5">
       <div class="text-center mb-4 mb-md-5">
-        <h1 class="card-title mb-0 fw-semibold text-center">AgentIssue-Bench</h1>
-        <p class="lead text-muted text-center">The first reproducible issue resolution benchmark focused on real-world agent system issues</p>
+        <h1 class="display-5 fw-bolder mb-3">🤖 AgentIssue-Bench</h1>
+        <p class="lead text-muted">The first reproducible issue resolution benchmark focused on real-world agent system issues.</p>
         <div class="mt-4 link-buttons">
           <a
             href="https://github.com/alfin06/AgentIssue-Bench"
@@ -14,7 +14,7 @@
             title="View Project on GitHub">
             <i class="bi bi-github"></i> GitHub
           </a>
-           <a
+          <a
             href="https://hub.docker.com/r/alfin06/agentissue-bench/tags"
             target="_blank"
             rel="noopener noreferrer"
@@ -22,46 +22,23 @@
             title="View on Docker Hub">
             <i class="bi bi-box-seam"></i> Docker Hub
           </a>
-          <!-- <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-outline-secondary mx-2 disabled"
-            title="Read the Paper (Coming Soon)"
-            aria-disabled="true"
-          >
-            <i class="bi bi-file-earmark-text"></i> Read the Paper (Soon)
-          </a> -->
-        </div>
+          </div>
       </div>
 
       <div class="row g-4">
-        <div class="col-lg-8">
-          <div class="card shadow-lg rounded-4 border h-100">
-            <div class="card-body p-2 p-md-4">
-              <h3 class="card-title text-center fw-bold mb-4">🏆 Leaderboard 🏆</h3>
-              <p class="lead text-muted text-center">Top-performing SE agent systems ranked by % Resolved</p>
-              <hr/>
+        <div class="col-lg-7">
+          <div class="card shadow-lg rounded-4 border">
+            <div class="card-body p-3 p-md-4"> <h3 class="card-title text-center fw-bold mb-4">🏆 Leaderboard 🏆</h3>
+              <p class="text-muted text-center mb-4">Top-performing SE agent systems ranked by % Resolved</p>
+              <hr class="mb-4"/>
               <div class="table-responsive">
                 <table class="table table-striped table-hover mb-0 align-middle text-center fs-6">
                   <thead class="table-dark">
                     <tr>
-                      <th scope="col" @click="sortBy('rank')" class="sortable-header">
-                        Rank
-                        <SortIcon :field="'rank'" :currentSort="sortKey" :direction="sortDirection" />
-                      </th>
-                      <th scope="col" @click="sortBy('system')" class="sortable-header">
-                        Model
-                        <SortIcon :field="'system'" :currentSort="sortKey" :direction="sortDirection" />
-                      </th>
-                      <th scope="col" @click="sortBy('institution')" class="sortable-header d-none d-md-table-cell">
-                        Institution
-                        <SortIcon :field="'institution'" :currentSort="sortKey" :direction="sortDirection" />
-                      </th>
-                      <th scope="col" @click="sortBy('score')" class="sortable-header">
-                        % Resolved
-                        <SortIcon :field="'score'" :currentSort="sortKey" :direction="sortDirection" />
-                      </th>
+                      <th scope="col" @click="sortBy('rank')" class="sortable-header">Rank</th>
+                      <th scope="col" @click="sortBy('system')" class="sortable-header">Model</th>
+                      <th scope="col" @click="sortBy('institution')" class="sortable-header d-none d-md-table-cell">Institution</th>
+                      <th scope="col" @click="sortBy('score')" class="sortable-header">% Resolved</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,11 +50,7 @@
                       </td>
                       <td class="text-start"><strong>{{ entry.system }}</strong></td>
                       <td class="d-none d-md-table-cell">
-                        <img
-                          :src="entry.institution"
-                          :alt="entry.system + ' institution logo'"
-                          class="institution-logo"
-                          />
+                        <img :src="entry.institution" :alt="entry.system + ' logo'" class="institution-logo"/>
                       </td>
                       <td>
                         <span class="badge bg-success fs-6 px-3 py-2 rounded-pill">{{ entry.score.toFixed(2) }}%</span>
@@ -87,40 +60,27 @@
                 </table>
               </div>
             </div>
-             <div class="card-footer bg-light border-0 py-3">
+            <div class="card-footer bg-light border-0 py-3">
                 <nav aria-label="Page navigation" class="d-flex justify-content-center">
                     <ul class="pagination mb-0">
-                    <li class="page-item" :class="{ disabled: currentPage === 1 }">
-                        <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Prev</a>
-                    </li>
-                    <li
-                        v-for="page in totalPages"
-                        :key="page"
-                        class="page-item"
-                        :class="{ active: currentPage === page }"
-                    >
-                        <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
-                    </li>
-                    <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-                        <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Next</a>
-                    </li>
+                      <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                          <a class="page-link" href="#" @click.prevent="changePage(currentPage - 1)">Prev</a>
+                      </li>
+                      <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
+                          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+                      </li>
+                      <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                          <a class="page-link" href="#" @click.prevent="changePage(currentPage + 1)">Next</a>
+                      </li>
                     </ul>
                 </nav>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <div class="vstack gap-4">
-            <div class="card shadow-lg rounded-4 border h-100">
-              <div class="card-body p-3 p-md-4">
-                <h3 class="card-title text-center fw-bold mb-4">📊 Resolution Rate</h3>
-                <hr/>
-                <img :src="bar" alt="Resolution Rate Bar Chart" class="img-fluid rounded" />
-              </div>
-            </div>
-
-            <div class="card shadow-lg rounded-4 border h-100">
+            <div class="card shadow-lg rounded-4 border">
               <div class="card-body p-3 p-md-4">
                 <h3 class="card-title text-center fw-bold mb-4">📰 News Feed</h3>
                  <hr/>
@@ -132,6 +92,22 @@
                 </ul>
               </div>
             </div>
+            
+            <div class="card shadow-lg rounded-4 border">
+              <div class="card-body p-3 p-md-4">
+                <h3 class="card-title text-center fw-bold mb-4">📊 Resolution Rate</h3>
+                <hr/>
+                <img :src="bar" alt="Resolution Rate Bar Chart" class="img-fluid rounded" />
+              </div>
+            </div>
+
+            <div class="card shadow-lg rounded-4 border">
+              <div class="card-body p-3 p-md-4">
+                <h3 class="card-title text-center fw-bold mb-4">🧩 Distribution</h3>
+                <hr/>
+                <img :src="pie" alt="Distribution of AgentIssue-Bench" class="img-fluid rounded" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -140,7 +116,7 @@
     <footer class="bg-light text-center py-4 mt-auto border-top">
       <div class="container-fluid">
          <p class="mb-2 text-muted">
-          <i class="bi bi-envelope"></i> Want to contribute? Contact us at: 
+          <i class="bi bi-envelope"></i> Want to contribute? Contact us at:
           <a :href="'mailto:' + contactEmail">{{ contactEmail }}</a>
         </p>
         <small class="text-muted">© 2025 AgentIssue-Bench Team.</small>
@@ -151,9 +127,10 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import Bar from "../assets/images/bar.png"; // Make sure this path is correct
+import Bar from "../assets/images/bar.png";
+import Pie from "../assets/images/pie.png";
 
-// Sort icon component for visual indication (Bootstrap icons work well on light/dark)
+// Sort icon component
 const SortIcon = {
   props: ['field', 'currentSort', 'direction'],
   template: `
@@ -183,6 +160,7 @@ const sortDirection = ref('desc');
 const currentPage = ref(1);
 const pageSize = 10;
 const bar = Bar;
+const pie = Pie;
 
 function sortBy(field) {
   if (sortKey.value === field) {
@@ -231,10 +209,10 @@ function changePage(page) {
 }
 
 function getRankBadge(rank) {
-    if (rank === 1) return 'badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill'; // Gold
-    if (rank === 2) return 'badge bg-secondary fs-6 px-3 py-2 rounded-pill'; // Silver
-    if (rank === 3) return 'badge bg-danger fs-6 px-3 py-2 rounded-pill'; // Bronze-ish
-    return 'badge bg-light text-dark border fs-6 px-2 py-1 rounded-pill'; // Standard
+    if (rank === 1) return 'badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill';
+    if (rank === 2) return 'badge bg-secondary fs-6 px-3 py-2 rounded-pill';
+    if (rank === 3) return 'badge bg-danger fs-6 px-3 py-2 rounded-pill';
+    return 'badge bg-light text-dark border fs-6 px-2 py-1 rounded-pill';
 }
 
 </script>
@@ -258,15 +236,18 @@ body {
   flex-direction: column;
 }
 
-/* Header & Footer */
-footer { /* Only footer now */
+footer {
   flex-shrink: 0;
   background-color: #f8f9fa !important;
 }
 
-/* Main Content */
 main.container-fluid {
   flex-grow: 1;
+}
+
+/* Main Title Area */
+.text-center.mb-4.mb-md-5 h1 {
+  font-size: 2.5rem; /* Adjust if needed */
 }
 
 /* Cards */
@@ -274,11 +255,12 @@ main.container-fluid {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   background-color: #ffffff;
   border-color: #dee2e6;
+  /* Removed h-100 */
 }
 
 .card-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  background-color: #f8f9fa !important; /* Ensure it's light */
+  background-color: #f8f9fa !important;
 }
 
 @media (hover: hover) {
@@ -293,10 +275,8 @@ main.container-fluid {
         z-index: 10;
         position: relative;
     }
-     .table th.sortable-header:hover {
-        opacity: 0.8;
-    }
-    .pagination .page-link:hover {
+     .table th.sortable-header:hover { opacity: 0.8; }
+     .pagination .page-link:hover {
         z-index: 2;
         color: #0a58ca;
         background-color: #e9ecef;
@@ -313,159 +293,66 @@ main.container-fluid {
   padding: 0.8rem 0.5rem;
   white-space: nowrap;
 }
-
-.table td {
-    padding: 0.8rem 0.5rem;
-    vertical-align: middle;
-}
-
+.table td { padding: 0.8rem 0.5rem; vertical-align: middle; }
 .table thead.table-dark {
     background-color: #212529 !important;
     color: #ffffff !important;
     font-weight: bold;
     border-bottom: 3px solid #0d6efd;
 }
-
 .table-striped > tbody > tr:nth-of-type(odd) > * {
     background-color: rgba(0, 0, 0, 0.03);
 }
-
-.leaderboard-row {
-  transition: background-color 0.15s ease, transform 0.2s ease;
-}
-
+.leaderboard-row { transition: background-color 0.15s ease, transform 0.2s ease; }
 .institution-logo {
-  height: 2em;
-  width: auto;
-  max-width: 80px;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 3px;
-  object-fit: contain;
-  border: 1px solid #eee;
+  height: 2em; width: auto; max-width: 80px; background-color: #fff;
+  border-radius: 5px; padding: 3px; object-fit: contain; border: 1px solid #eee;
 }
+.rank-cell .badge { min-width: 35px; font-size: 0.9em !important; }
 
-.rank-cell .badge {
-    min-width: 35px;
-    font-size: 0.9em !important;
-}
-
-/* Pagination - Using standard Bootstrap */
+/* Pagination */
 .pagination .page-item.active .page-link {
-    z-index: 3;
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+    z-index: 3; color: #fff; background-color: #0d6efd; border-color: #0d6efd;
 }
-
 .pagination .page-link {
-    color: #0d6efd;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    padding: 0.375rem 0.75rem;
+    color: #0d6efd; background-color: #fff; border: 1px solid #dee2e6;
+    transition: background-color 0.2s ease, color 0.2s ease; padding: 0.375rem 0.75rem;
 }
-
 .pagination .page-item.disabled .page-link {
-    color: #6c757d;
-    pointer-events: none;
-    background-color: #fff;
-    border-color: #dee2e6;
+    color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6;
 }
 
 /* News List */
-.list-group-item {
-    border-color: #dee2e6 !important;
-    color: #212529 !important;
-}
+.list-group-item { border-color: #dee2e6 !important; color: #212529 !important; }
+#app { height: 100%; width: 100%; }
 
-/* Ensure #app takes full height */
-#app {
-  height: 100%;
-  width: 100%;
-}
+/* Link Buttons */
+.btn .bi { vertical-align: middle; margin-right: 0.5rem; font-size: 1.1rem; }
+.btn { display: inline-flex; align-items: center; }
+.link-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+.link-buttons .btn { margin: 0; }
 
-/* Link Icons */
-.btn .bi {
-    vertical-align: middle;
-    margin-right: 0.5rem;
-    font-size: 1.1rem;
-}
-.btn {
-    display: inline-flex;
-    align-items: center;
-}
-
-/* Link Buttons Layout */
-.link-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allows wrapping on smaller screens before stacking */
-  gap: 0.5rem; /* Add some space between buttons */
-}
-
-.link-buttons .btn {
-  margin: 0; /* Remove old margins */
-}
-
-/* Visually Hidden Class */
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-/* Specific Mobile Adjustments */
+/* Mobile Adjustments */
 @media (max-width: 767.98px) {
-    .display-4 {
-        font-size: 2.5rem;
-    }
-    .table th.sortable-header,
-    .table td {
-        padding: 0.5rem 0.3rem;
-    }
-    .fs-6 {
-        font-size: 0.85rem;
-    }
-     .pagination {
-        font-size: 0.8rem;
-    }
-    .pagination .page-link {
-       padding: 0.25rem 0.5rem;
-    }
-    .ps-3 {
-        padding-left: 1rem !important;
-    }
-    .btn {
-        padding: 0.375rem 0.75rem;
-        font-size: 0.8rem;
-    }
-    .link-buttons {
-      flex-direction: column;
-      align-items: center; /* Center buttons when stacked */
-    }
+    h1.display-5 { font-size: 2rem; }
+    .table th.sortable-header, .table td { padding: 0.5rem 0.3rem; }
+    .fs-6 { font-size: 0.85rem; }
+    .pagination { font-size: 0.8rem; }
+    .pagination .page-link { padding: 0.25rem 0.5rem; }
+    .btn { padding: 0.375rem 0.75rem; font-size: 0.8rem; }
+    .link-buttons { flex-direction: column; align-items: center; }
     .link-buttons .btn {
-        display: flex; /* Ensure flex for centering icon */
-        justify-content: center; /* Center content */
-        width: 80%; /* Adjust width for stacked buttons */
-        margin-bottom: 0.5rem !important;
+        display: flex; justify-content: center;
+        width: 80%; margin-bottom: 0.5rem !important;
     }
-    .link-buttons .btn:last-child {
-        margin-bottom: 0 !important;
-    }
+    .link-buttons .btn:last-child { margin-bottom: 0 !important; }
+}
+@media (min-width: 768px) {
+    .link-buttons .btn { display: inline-flex; width: auto; }
 }
 
-/* Ensure buttons are inline on larger screens */
-@media (min-width: 768px) {
-    .link-buttons .btn {
-        display: inline-flex;
-        width: auto; /* Auto width on larger screens */
-    }
-}
+/* Footer Link Styling */
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
 </style>
