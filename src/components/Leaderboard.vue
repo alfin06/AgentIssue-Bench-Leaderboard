@@ -22,6 +22,14 @@
             title="View on Docker Hub">
             <i class="bi bi-box-seam"></i> Docker Hub
           </a>
+           <a
+            href="https://arxiv.org/pdf/2505.20749"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline-secondary mx-2"
+            title="Can Agents Fix Agent Issues?">
+            <i class="bi bi-file-earmark-text"></i> Paper
+          </a>
           </div>
       </div>
 
