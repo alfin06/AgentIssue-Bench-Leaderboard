@@ -155,12 +155,12 @@ const SortIcon = {
 const contactEmail = ref('24212010055@m.fudan.edu.cn');
 
 const leaderboard = ref([
-  { system: 'AutoCodeRover + Claude 3.5 Sonnet', institution: 'https://avatars.githubusercontent.com/u/100131783?s=200&v=4', score: 12.67, link: 'https://autocoderover.dev/' },
-  { system: 'Agentless + Claude 3.5 Sonnet', institution: 'https://brand.illinois.edu/wp-content/uploads/2024/02/Color-Variation-Orange-Block-I-White-Background.png', score: 8.67, link: 'https://github.com/OpenAutoCoder/Agentless' },
-  { system: 'SWE-agent + Claude 3.5 Sonnet', institution: 'https://avatars.githubusercontent.com/u/166046056?s=200&v=4', score: 6.67, link: 'https://swe-agent.com/' },
-  { system: 'Agentless + GPT-4o', institution: 'https://brand.illinois.edu/wp-content/uploads/2024/02/Color-Variation-Orange-Block-I-White-Background.png', score: 6.00, link: 'https://github.com/OpenAutoCoder/Agentless' },
-  { system: 'AutoCodeRover + GPT-4o', institution: 'https://avatars.githubusercontent.com/u/100131783?s=200&v=4', score: 4.67, link: 'https://autocoderover.dev/' },
-  { system: 'SWE-agent + GPT-4o', institution: 'https://avatars.githubusercontent.com/u/166046056?s=200&v=4', score: 3.33, link: 'https://swe-agent.com/' },
+  { system: 'AutoCodeRover + Claude 3.5 Sonnet', institution: 'https://avatars.githubusercontent.com/u/100131783?s=200&v=4', score: 4.67, link: 'https://autocoderover.dev/' },
+  { system: 'Agentless + Claude 3.5 Sonnet', institution: 'https://brand.illinois.edu/wp-content/uploads/2024/02/Color-Variation-Orange-Block-I-White-Background.png', score: 4.00, link: 'https://github.com/OpenAutoCoder/Agentless' },
+  { system: 'Agentless + GPT-4o', institution: 'https://brand.illinois.edu/wp-content/uploads/2024/02/Color-Variation-Orange-Block-I-White-Background.png', score: 3.33, link: 'https://github.com/OpenAutoCoder/Agentless' },
+  { system: 'SWE-agent + Claude 3.5 Sonnet', institution: 'https://avatars.githubusercontent.com/u/166046056?s=200&v=4', score: 2.00, link: 'https://swe-agent.com/' },
+  { system: 'AutoCodeRover + GPT-4o', institution: 'https://avatars.githubusercontent.com/u/100131783?s=200&v=4', score: 1.33, link: 'https://autocoderover.dev/' },
+  { system: 'SWE-agent + GPT-4o', institution: 'https://avatars.githubusercontent.com/u/166046056?s=200&v=4', score: 0.67, link: 'https://swe-agent.com/' },
 ]);
 
 const sortKey = ref('score');
